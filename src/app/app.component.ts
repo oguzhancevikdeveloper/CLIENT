@@ -8,6 +8,3 @@ declare var $: any
 export class AppComponent {
   title = 'CLIENT';
 }
-$(document).ready(() => {
-  alert("Hello World!")
-});
