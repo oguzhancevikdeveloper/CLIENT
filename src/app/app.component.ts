@@ -9,16 +9,6 @@ declare var $: any
 })
 export class AppComponent {
   title = 'CLIENT';
-  constructor(private toastrService: CustomToastrService) {
-
-    toastrService.message("merhaba","angular",{
-       messageType: ToastrMessageType.Success,
-       position: ToastrPosition.TopCenter,
-    });
-    toastrService.message("merhaba","angular",{
-        messageType: ToastrMessageType.Success,
-        position: ToastrPosition.BottomFullWidth
-    });
-  }
+  constructor() {}
 
 }
