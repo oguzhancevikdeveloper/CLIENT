@@ -12,10 +12,10 @@ import { ProductService } from 'src/app/services/common/models/product.service';
 })
 export class CreateComponent extends BaseComponent implements OnInit {
 
-  constructor(spinner: NgxSpinnerService, private alertify : AlertifyService,private productService: ProductService) { super(spinner) }
+  constructor(spinner: NgxSpinnerService, private alertify: AlertifyService, private productService: ProductService) { super(spinner) }
 
   ngOnInit(): void {
-    
+
   }
 
   create(txtName: HTMLInputElement, txtStock: HTMLInputElement, txtPrice: HTMLInputElement) {
@@ -25,14 +25,21 @@ export class CreateComponent extends BaseComponent implements OnInit {
     create_product.stock = parseInt(txtStock.value);
     create_product.price = parseFloat(txtPrice.value);
 
-    this.productService.create(create_product, () =>{
+    this.productService.create(create_product, () => {
       this.hideSpinner(SpinnerType.BallAtom);
-      this.alertify.message("Ürün Başari ile Eklenmiştir.",{
+      this.alertify.message("Ürün Başari ile Eklenmiştir.", {
         dismissOthers: true,
         messageType: MessageType.Success,
         position: Position.TopRight
       });
+    }, errorMessage => {
+      this.alertify.message(errorMessage,
+        {
+          dismissOthers: true,
+          messageType: MessageType.Error,
+          position: Position.TopRight
+        });
     });
   }
-
 }
+
