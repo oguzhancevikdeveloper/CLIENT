@@ -7,7 +7,9 @@ import { CreateComponent } from './create/create.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { ListComponent } from './list/list.component';
 import {MatInputModule} from '@angular/material/input';
-import {MatButtonModule} from '@angular/material/button'
+import {MatButtonModule} from '@angular/material/button';
+import {MatTableModule} from '@angular/material/table';
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 
 
@@ -19,7 +21,7 @@ import {MatButtonModule} from '@angular/material/button'
   ],
   imports: [
     CommonModule,
-    MatSidenavModule,MatFormFieldModule,MatInputModule,MatButtonModule,
+    MatSidenavModule,MatFormFieldModule,MatInputModule,MatButtonModule,MatTableModule,MatPaginatorModule,
     RouterModule.forChild([
       {path:"", component: ProductComponent}
     ])
